@@ -1,7 +1,21 @@
-# Tauri + React + Typescript
+# SubSys - WSL Terminal Interface
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+## ⚠️ EXPERIMENTAL STATUS
 
-## Recommended IDE Setup
+**This project is currently experimental and under active development.**
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+### Known Limitations:
+- Nothing works
+
+## Usage
+
+This is an experimental Tauri application for managing WSL terminal sessions.
+
+```bash
+pnpm run dev
+```
+
+As this is experimental, feedback and contributions are welcome but expect frequent changes.## Contributing
+## Contributing
+
+As this is experimental, feedback and contributions are welcome but expect frequent changes.

@@ -30,6 +30,12 @@
   text-align: center;
 }
 
+.home {
+  border: 2px solid aquamarine;
+  border-radius: 4px;
+  padding: 2vh;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
