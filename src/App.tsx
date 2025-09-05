@@ -6,10 +6,14 @@ import "./App.css";
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
+  const [distros, listAllDistros] = useState("");
 
   async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
     setGreetMsg(await invoke("greet", { name }));
+  }
+
+  async function listDistro() {
+    listAllDistros(await invoke("get_distros"));
   }
 
   return (
@@ -44,6 +48,24 @@ function App() {
         <button type="submit">Greet</button>
       </form>
       <p>{greetMsg}</p>
+
+      <div>
+        <form
+          className="row"
+          onSubmit={(e) => {
+            e.preventDefault();
+            listDistro();
+          }}
+        >
+          <button
+            type="submit"
+            onChange={(e) => listAllDistros(e.currentTarget.value)}
+          >
+            Get All distros
+          </button>
+        </form>
+        <p>{distros}</p>
+      </div>
     </main>
   );
 }
