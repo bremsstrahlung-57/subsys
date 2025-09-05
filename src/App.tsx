@@ -2,18 +2,19 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
+import DistroList from "./distrolist";
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
-  const [distros, listAllDistros] = useState("");
 
   async function greet() {
     setGreetMsg(await invoke("greet", { name }));
   }
 
-  async function listDistro() {
-    listAllDistros(await invoke("get_distros"));
+  async function fetchDistros() {
+    const distros: string[] = await invoke("get_distros");
+    console.log(distros);
   }
 
   return (
@@ -50,21 +51,7 @@ function App() {
       <p>{greetMsg}</p>
 
       <div>
-        <form
-          className="row"
-          onSubmit={(e) => {
-            e.preventDefault();
-            listDistro();
-          }}
-        >
-          <button
-            type="submit"
-            onChange={(e) => listAllDistros(e.currentTarget.value)}
-          >
-            Get All distros
-          </button>
-        </form>
-        <p>{distros}</p>
+        <DistroList />
       </div>
     </main>
   );
